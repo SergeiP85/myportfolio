@@ -31,12 +31,4 @@
 		}
 	}
 }
-
-  #skills-list li {
-    display:inline-block;
-    background-color: var(--blue-400);
-    padding:10px 20px;
-    border-radius:15px;
-    margin-bottom:10px;
-  }
   
