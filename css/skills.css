@@ -31,3 +31,28 @@
 		}
 	}
 }
+
+#skills-section {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+  }
+  
+  #skills-section h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  #skills-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #skills-list li {
+    font-size: 18px;
+    margin-bottom: 5px;
+    background-color: #ffe066;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
