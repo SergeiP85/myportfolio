@@ -4,6 +4,8 @@
 		gap:20px;
 		@media(max-width:1024px){
 			flex-direction:column;
+            margin-right: 20px;
+            gap: 0;
 		}
 		article {
 			background-color: var(--yellow-100);
