@@ -1,0 +1,40 @@
+.references .wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.references .wrapper .ref-card {
+    text-align: center;
+    padding: 3rem 2rem;
+    flex: 1;
+    max-width: 400px; 
+}
+
+.wrapper .ref-card img{
+height: 30px;
+width: auto;
+}
+
+.references .wrapper .ref-card p {
+    color: var(--base-400);
+    font-size: 12px;
+    padding: 0 0 20px 0;
+    text-align: center;
+    max-height: 350px; /* Ограничиваем высоту */
+}
+
+.references .wrapper .ref-card:hover p {
+        color:var(--base-800);
+}
+
+.references .wrapper .ref-card .reviewer {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.references .wrapper .ref-card:hover .reviewer{
+    transform: scale(1.1);
+}

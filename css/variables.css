@@ -1,4 +1,5 @@
 :root {
+    --text-shadow: 2px 2px 0 var(--blue-400), -2px -2px 0 var(--blue-800), -2px 2px 0 var(--blue-100), 2px -2px 0 var(--blue-400);
 	--base: #555;
 	--base-100: #f1f1f1;
 	--base-400: #555;
