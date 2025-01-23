@@ -1,5 +1,6 @@
-function toggleMobileMenu(){
-	document.getElementById("menu").classList.toggle("active");
+function toggleMobileMenu(event){
+    event.preventDefault();  // предотвращаем прокрутку страницы в начало
+    document.getElementById("menu").classList.toggle("active");
 }
 
 // All skills section
