@@ -113,9 +113,24 @@
     }
 }
 
-.rainbow-text {
+.rainbow-hover {
+    background: none; 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: var(--base-800);
+    font-weight: bold;
+    transition: background 0.3s, -webkit-text-fill-color 0.3s; 
+}
+
+.rainbow-hover:hover {
     background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-weight: bold; /* по желанию */
+}
+
+@media (max-width: 1024px) {
+    .rainbow-hover {
+        background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 }
