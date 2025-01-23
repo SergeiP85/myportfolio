@@ -105,3 +105,10 @@
 .bento-item:hover figcaption {
 	opacity: 1;
 }
+
+@media (max-width: 1024px) {
+    .bento-item figcaption {
+        opacity: 1;
+        transition: none;
+    }
+}
