@@ -87,3 +87,21 @@
 		}
 	}
 }
+
+.bento-item figcaption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 10px;
+	background: rgba(0, 0, 0, 0.5); 
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	opacity: 0; 
+	transition: opacity 0.3s ease; 
+}
+
+.bento-item:hover figcaption {
+	opacity: 1;
+}
