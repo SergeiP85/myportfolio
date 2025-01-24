@@ -126,6 +126,7 @@ h1 {
         transform: translate(-50%, -50%);
         font-size: 30px;
         color: var(--blue);
+        animation: fadeInOut 3s infinite;
         @media (max-width:1024px) {
             font-size: 16px;
             left: 85%;
@@ -140,6 +141,7 @@ h1 {
         transform: translate(-50%, -50%);
         font-size: 30px;
         color: var(--blue);
+        animation: fadeInOut 3s infinite 1s;
         @media (max-width:1024px) {
             font-size: 25px;
             left: 20%;
@@ -158,9 +160,22 @@ h1 {
         transform: translate(-50%, -50%);
         font-size: 30px;
         color: var(--blue);
+        animation: fadeInOut 3s infinite 2s;
         @media (max-width:1024px) {
             font-size: 20px;
             left: 25%;
         }
+    }
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
