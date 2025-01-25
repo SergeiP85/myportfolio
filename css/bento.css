@@ -27,8 +27,8 @@
 				height:100%;
 				object-fit:cover;
 				transition: ease 3s all;
-                border: 5px solid; /* Добавляем стандартную границу */
-				border-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) 1; /* Градиентная граница */
+                /* border: 5px solid; 
+				border-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) 1; Градиентная граница */
 			}
 			&:hover {
 				img {
@@ -115,7 +115,7 @@
     }
 }
 
-.rainbow-hover {
+/* .rainbow-hover {
     background: none; 
     background-clip: text;
     -webkit-background-clip: text;
@@ -138,4 +138,4 @@
         background-clip: text;
         -webkit-text-fill-color: transparent;
     }
-}
+} */
