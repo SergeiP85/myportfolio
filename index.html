@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
+    <script src="js/gituser.js" defer></script>
     <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 
@@ -280,6 +281,23 @@
 			</div>
 		</section>
 
+        <section class="container">
+            <h2>
+                <small>
+                    Frontend Development 
+                </small>
+                Repositories Portfolio
+            </h2>
+            <div class="git-app">
+                <form class="search-form" data-search-form>
+                    <input type="text" class="search-input" placeholder="Enter GIT Hub Username..." data-search-input>
+                    <button type="submit" class="search-button">Search</button>
+                    <div class="user-info-container" data-user-info-container></div>
+                    <div class="repos-container"></div>
+                </form>
+            </div>
+        </section>
+
 <!--ref section-->
 <section id="references" class="references">
     <h2>
@@ -367,6 +385,7 @@
     </main>
     <script src="js/index.js"></script>
     <script src="js/winter.js"></script>
+    <script src="js/gituser.js" defer></script>
 </body>
 
 </html>

@@ -1,0 +1,36 @@
+.search-form {
+    display: flex;
+    gap: 30px;
+}
+
+.search-input {
+    width: 300px;
+    padding: 5px;
+}
+
+.search-button {
+    display: inline-block;
+    color: var(--base);
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: var(--blue);
+    color: var(--base-100);
+    border-radius: 10px;
+    transition: ease 0.3s all;
+    border: none;
+}
+
+.search-button:hover {
+    border-radius: 10px;
+    background-color: var(--base-800);
+    cursor: pointer;
+}
+
+.user-info-container, .repos-container {
+    padding: 20px;
+}
+
+.user-info-container img {
+    width: 100px;
+    border-radius: 50%;
+}
