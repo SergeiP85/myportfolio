@@ -31,13 +31,25 @@ async function fetchGitHubUser(username) {
         if (repos.length) {
             reposContainer.innerHTML = `<h3>Repositories:</h3>`;
 
-            repos.forEach(repo => {
-                reposContainer.innerHTML += `
-                <div class="repo">
-                <a href="${repo.html_url}" target=_blank>${repo.name}</a>
-                </div>
-                ` 
-            });
+            reposContainer.innerHTML += `
+            <table class="repo-table">
+                <tr>
+                    <th>Name</th>
+                    <th>⭐ Stars</th>
+                    <th>💻 Language</th>
+                    <th>📅 Updated</th>
+                </tr>
+                ${repos.map(repo => `
+                    <tr>
+                        <td><a href="${repo.html_url}" target="_blank">${repo.name}</a></td>
+                        <td>${repo.stargazers_count}</td>
+                        <td>${repo.language || "Unknown"}</td>
+                        <td>${new Date(repo.updated_at).toLocaleDateString()}</td>
+                    </tr>
+                `).join("")}
+            </table>
+        `;
+        
 
         } else {
             reposContainer.innerHTML = `<p>No repositories found</p>`;
