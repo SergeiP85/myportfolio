@@ -5,18 +5,10 @@ const reposContainer = document.querySelector("[data-repos-container]");
 
 const API_GITHUB = "https://api.github.com/users";
 
-form.addEventListener("submit", async (e) => {  
-    e.preventDefault();
-
-    const username = input.value.trim();
-    if (!username) {
-        alert("Please enter a GitHub username.");
-        return;
-    }
-
+async function fetchGitHubUser(username) {
     userInfoContainer.innerHTML = `<p>Loading...</p>`;
-    // reposContainer.innerHTML = "";
-
+    reposContainer.innerHTML = "";
+    
     try {
         const userResponse = await fetch(`${API_GITHUB}/${username}`);
         if (!userResponse.ok) throw new Error("User not found");
@@ -36,8 +28,6 @@ form.addEventListener("submit", async (e) => {
 
         const repos = await reposResponse.json();
 
-        console.log(userInfoContainer)
-
         if (repos.length) {
             reposContainer.innerHTML = `<h3>Repositories:</h3>`;
 
@@ -47,7 +37,7 @@ form.addEventListener("submit", async (e) => {
                 <a href="${repo.html_url}" target=_blank>${repo.name}</a>
                 </div>
                 ` 
-            })
+            });
 
         } else {
             reposContainer.innerHTML = `<p>No repositories found</p>`;
@@ -56,6 +46,21 @@ form.addEventListener("submit", async (e) => {
     } catch (error) {
         userInfoContainer.innerHTML = `<p>${error.message}</p>`;
     }
+}
+
+// 📌 Загружаем пользователя "SergeiP85" при загрузке страницы
+document.addEventListener("DOMContentLoaded", () => {
+    fetchGitHubUser("SergeiP85");
 });
 
+form.addEventListener("submit", async (e) => {  
+    e.preventDefault();
 
+    const username = input.value.trim();
+    if (!username) {
+        alert("Please enter a GitHub username.");
+        return;
+    }
+
+    fetchGitHubUser(username);
+});
