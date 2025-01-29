@@ -1,11 +1,22 @@
 .search-form {
     display: flex;
-    gap: 30px;
+    margin-top: 15px;
+    gap: 15px;
 }
 
 .search-input {
     width: 300px;
     padding: 5px;
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid transparent;
+    background-color: var(--base-100);
+}
+
+.search-input:hover {
+    outline: none;
+    background-color: white;
+    border: 1px solid var(--base-100);
 }
 
 .search-button {
@@ -28,9 +39,18 @@
 
 .user-info-container, .repos-container {
     padding: 20px;
+    color: var(--base-800);
 }
 
 .user-info-container img {
     width: 100px;
     border-radius: 50%;
+}
+
+.repo {
+    margin: 5px;
+}
+
+.repos-container {
+    font-size: 16px;
 }
