@@ -43,7 +43,7 @@ form.addEventListener("submit", async (e) => {
 
             repos.forEach(repo => {
                 reposContainer.innerHTML += `
-                <div class="repos-container">
+                <div class="repo">
                 <a href="${repo.html_url}" target=_blank>${repo.name}</a>
                 </div>
                 ` 
