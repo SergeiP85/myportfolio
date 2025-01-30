@@ -61,3 +61,18 @@ const skills = [
   
   // Re-render skills on window resize
   window.addEventListener("resize", renderSkills);
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleButton = document.getElementById("toggleButton");
+    const hiddenText = document.getElementById("hiddenText");
+
+    toggleButton.addEventListener("click", function () {
+        if (hiddenText.style.display === "none" || hiddenText.style.display === "") {
+            hiddenText.style.display = "inline";
+            toggleButton.textContent = "▲"; // Или текст "Скрыть"
+        } else {
+            hiddenText.style.display = "none";
+            toggleButton.textContent = "more";
+        }
+    });
+});

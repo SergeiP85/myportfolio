@@ -179,3 +179,19 @@ h1 {
         opacity: 0;
     }
 }
+
+#hiddenText {
+    display: none;
+}
+
+#toggleButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #007bff;
+}
+
+#toggleButton:hover {
+    text-decoration: underline;
+}
