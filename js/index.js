@@ -69,7 +69,7 @@ const skills = [
     toggleButton.addEventListener("click", function () {
         if (hiddenText.style.display === "none" || hiddenText.style.display === "") {
             hiddenText.style.display = "inline";
-            toggleButton.textContent = "▲"; // Или текст "Скрыть"
+            toggleButton.textContent = "less"; 
         } else {
             hiddenText.style.display = "none";
             toggleButton.textContent = "more";
