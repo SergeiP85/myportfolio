@@ -1,4 +1,4 @@
-код для main: скрытие и раскрытие дополнительного текста more/less
+// код для main: скрытие и раскрытие дополнительного текста more/less
 
   document.addEventListener("DOMContentLoaded", function () {
     const toggleButton = document.getElementById("toggleButton");
