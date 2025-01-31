@@ -1,66 +1,110 @@
-function toggleMobileMenu(event){
-    event.preventDefault();  // предотвращаем прокрутку страницы в начало
-    document.getElementById("menu").classList.toggle("active");
-}
+document.addEventListener("DOMContentLoaded", function () { 
+  const frontendSkillsList = document.getElementById("frontend-skills-list");
+  const commSkillsList = document.getElementById("comm-skills-list");
+  const toggleCommSkillsButton = document.getElementById("toggleCommSkillsButton");
 
-// All skills section
-const skills = [
-    "Internal Comms",
-    "Intranet",
-    "Events",
-    "Newsletters",
-    "CSR",
-    "Culture",
-    "DEI",
-    "HR Brand",
-    "Communities",
-    "Content Administration",
-    "Media Relations",
-    "Employee Engagement",
-    "Cross-functional Collaboration",
-    "Administrative Management",
-    "Events",
-    "Data Analytics",
-    "Video and Photo Editing",
-    "Figma",
-    "Digital Content",
-    "Copywriting",
-    "Document Workflow",
-    "Microsoft Office",
-    "SharePoint Administration",
-    "Asana",
-    "Jira",
-    "Trello",
-    "ERP Systems",
-    "Marketing"
+  const frontendSkills = [
+      "HTML", "CSS", "JavaScript", "Slack", "VS Code", "Figma", "React", "Git", "Next.js"
   ];
-  
-  // container for all skills
-  const skillsList = document.getElementById("skills-list");
-  
-  // Function to render skills based on screen width
+
+  const commSkills = [
+      "Internal Comms", "Intranet", "Events", "Newsletters", "CSR", "Culture", "DEI",
+      "HR Brand", "Communities", "Content Administration", "Media Relations",
+      "Employee Engagement", "Cross-functional Collaboration", "Administrative Management"
+  ];
+
+  let hiddenSkills = []; // Переменная для скрытых навыков
+  let hiddenSkillsElements = []; // Массив для элементов скрытых навыков
+
   function renderSkills() {
-    const screenWidth = window.innerWidth;
-  
-    // Clear the list to avoid duplicate entries
-    skillsList.innerHTML = '';
-  
-    // Determine how many skills to display
-    const skillsToDisplay = screenWidth > 1024 ? skills : skills.slice(0, 7);
-  
-    // Render the determined number of skills
-    skillsToDisplay.forEach(skill => {
-      const listItem = document.createElement("li"); // Create Li element
-      listItem.textContent = skill; // Add text from array
-      skillsList.appendChild(listItem); // Insert into ul
-    });
+      const screenWidth = window.innerWidth;
+
+      // Очистка списков перед рендером
+      frontendSkillsList.innerHTML = "";
+      commSkillsList.innerHTML = "";
+
+      // Отображаем все навыки для Frontend
+      frontendSkills.forEach(skill => {
+          const listItem = document.createElement("li");
+          listItem.textContent = skill;
+          frontendSkillsList.appendChild(listItem);
+      });
+
+      // Отображаем все навыки для Corporate Communications
+      commSkills.slice(0, 7).forEach(skill => {
+          const listItem = document.createElement("li");
+          listItem.textContent = skill;
+          commSkillsList.appendChild(listItem);
+      });
+
+      // Когда экран маленький, добавляем скрытые навыки
+      if (screenWidth < 1024) {
+          // Скрытые навыки
+          hiddenSkills = commSkills.slice(7); 
+
+          // Добавляем скрытые навыки в DOM, если они еще не добавлены
+          hiddenSkills.forEach(skill => {
+              const listItem = document.createElement("li");
+              listItem.textContent = skill;
+              listItem.classList.add("hidden-skill"); // Добавляем класс для скрытия
+              listItem.style.display = "none"; // Изначально скрываем
+              commSkillsList.appendChild(listItem);
+              hiddenSkillsElements.push(listItem); // Добавляем в массив для дальнейшего использования
+          });
+
+          // Показываем кнопку "more", если есть скрытые навыки
+          toggleCommSkillsButton.style.display = hiddenSkills.length > 0 ? "inline-block" : "none";
+      } else {
+          // Если экран большой, показываем все навыки сразу, скрываем кнопку "more"
+          commSkills.slice(7).forEach(skill => {
+              const listItem = document.createElement("li");
+              listItem.textContent = skill;
+              commSkillsList.appendChild(listItem);
+          });
+
+          // Очищаем массив скрытых навыков и скрываем кнопку "more"
+          toggleCommSkillsButton.style.display = "none";
+          hiddenSkillsElements = [];
+      }
   }
-  
-  // Initial render
+
+  // Обработчик для кнопки "more/less"
+  toggleCommSkillsButton.addEventListener("click", function () {
+      if (hiddenSkillsElements.length > 0) {
+          // Проверяем, скрыты ли навыки
+          if (hiddenSkillsElements[0].style.display === "none") {
+              hiddenSkillsElements.forEach(skill => skill.style.display = "inline-block");
+              toggleCommSkillsButton.textContent = "less";
+          } else {
+              hiddenSkillsElements.forEach(skill => skill.style.display = "none");
+              toggleCommSkillsButton.textContent = "more";
+          }
+      }
+  });
+
+  // Начальный рендер навыков
   renderSkills();
-  
-  // Re-render skills on window resize
+
+  // Перерисовка при изменении размера экрана
   window.addEventListener("resize", renderSkills);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleButton = document.getElementById("toggleButton");
+    const hiddenText = document.getElementById("hiddenText");
+
+    toggleButton.addEventListener("click", function () {
+        if (hiddenText.style.display === "none" || hiddenText.style.display === "") {
+            hiddenText.style.display = "inline";
+            toggleButton.textContent = "less"; 
+        } else {
+            hiddenText.style.display = "none";
+            toggleButton.textContent = "more";
+        }
+    });
+});
+
+// код для main: скрытие и раскрытие дополнительного текста more/less
 
   document.addEventListener("DOMContentLoaded", function () {
     const toggleButton = document.getElementById("toggleButton");

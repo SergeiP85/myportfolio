@@ -13,7 +13,7 @@
 			ul {
 				list-style-type: none;
 				gap:10px;
-				margin-right:100px;
+				margin-right: 10px;
 				margin-bottom:20px;
 				li {
 					display:inline-block;
@@ -32,4 +32,25 @@
 		}
 	}
 }
+
+.hidden-skill {
+    display: none;
+	background-color: var(--blue-400);
+					padding:10px 20px;
+					border-radius:15px;
+					margin:2px;
+}
+
+#toggleCommSkillsButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #007bff;
+}
+
+#toggleCommSkillsButton:hover {
+    text-decoration: underline;
+}
+
   
