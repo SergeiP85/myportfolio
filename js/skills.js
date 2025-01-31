@@ -2,76 +2,73 @@ document.addEventListener("DOMContentLoaded", function () {
     const frontendSkillsList = document.getElementById("frontend-skills-list");
     const commSkillsList = document.getElementById("comm-skills-list");
     const toggleCommSkillsButton = document.getElementById("toggleCommSkillsButton");
-  
+
+    // Фронтенд навыки (всегда отображаются)
     const frontendSkills = [
         "HTML", "CSS", "JavaScript", "Slack", "VS Code", "Figma", "React", "Git", "Next.js"
     ];
-  
+
+    // Навыки корпоративных коммуникаций (часть скрывается на маленьких экранах)
     const commSkills = [
         "Internal Comms", "Intranet", "Events", "Newsletters", "CSR", "Culture", "DEI",
         "HR Brand", "Communities", "Content Administration", "Media Relations",
         "Employee Engagement", "Cross-functional Collaboration", "Administrative Management"
     ];
-  
-    let hiddenSkills = []; // Переменная для скрытых навыков
-    let hiddenSkillsElements = []; // Массив для элементов скрытых навыков
-  
+
+    let hiddenSkillsElements = []; // Массив для скрытых элементов
+
     function renderSkills() {
         const screenWidth = window.innerWidth;
-  
+        
         // Очистка списков перед рендером
         frontendSkillsList.innerHTML = "";
         commSkillsList.innerHTML = "";
-  
-        // Отображаем все навыки для Frontend
+
+        // Добавляем все фронтенд-навыки (они всегда видны)
         frontendSkills.forEach(skill => {
             const listItem = document.createElement("li");
             listItem.textContent = skill;
             frontendSkillsList.appendChild(listItem);
         });
-  
-        // Отображаем все навыки для Corporate Communications
+
+        // Отображаем первые 7 навыков для Corporate Communications
         commSkills.slice(0, 7).forEach(skill => {
             const listItem = document.createElement("li");
             listItem.textContent = skill;
             commSkillsList.appendChild(listItem);
         });
-  
-        // Когда экран маленький, добавляем скрытые навыки
+
+        hiddenSkillsElements = []; // Очищаем массив перед добавлением новых скрытых элементов
+
+        // Если экран маленький, скрываем часть навыков Corporate Communications
         if (screenWidth < 1024) {
-            // Скрытые навыки
-            hiddenSkills = commSkills.slice(7); 
-  
-            // Добавляем скрытые навыки в DOM, если они еще не добавлены
-            hiddenSkills.forEach(skill => {
+            commSkills.slice(7).forEach(skill => {
                 const listItem = document.createElement("li");
                 listItem.textContent = skill;
-                listItem.classList.add("hidden-skill"); // Добавляем класс для скрытия
+                listItem.classList.add("hidden-skill");
                 listItem.style.display = "none"; // Изначально скрываем
                 commSkillsList.appendChild(listItem);
-                hiddenSkillsElements.push(listItem); // Добавляем в массив для дальнейшего использования
+                hiddenSkillsElements.push(listItem);
             });
-  
+
             // Показываем кнопку "more", если есть скрытые навыки
-            toggleCommSkillsButton.style.display = hiddenSkills.length > 0 ? "inline-block" : "none";
+            toggleCommSkillsButton.style.display = hiddenSkillsElements.length > 0 ? "inline-block" : "none";
         } else {
-            // Если экран большой, показываем все навыки сразу, скрываем кнопку "more"
+            // Если экран большой, отображаем все навыки
             commSkills.slice(7).forEach(skill => {
                 const listItem = document.createElement("li");
                 listItem.textContent = skill;
                 commSkillsList.appendChild(listItem);
             });
-  
-            // Очищаем массив скрытых навыков и скрываем кнопку "more"
+
+            // Скрываем кнопку "more"
             toggleCommSkillsButton.style.display = "none";
-            hiddenSkillsElements = [];
         }
     }
-  
-    // Обработчик для кнопки "more/less"
+
+    // Обработчик кнопки "more/less" для скрытых навыков Corporate Communications
     toggleCommSkillsButton.addEventListener("click", function () {
         if (hiddenSkillsElements.length > 0) {
-            // Проверяем, скрыты ли навыки
             if (hiddenSkillsElements[0].style.display === "none") {
                 hiddenSkillsElements.forEach(skill => skill.style.display = "inline-block");
                 toggleCommSkillsButton.textContent = "less";
@@ -81,25 +78,10 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     });
-  
-    // Начальный рендер навыков
+
+    // Первоначальный рендер
     renderSkills();
-  
+
     // Перерисовка при изменении размера экрана
     window.addEventListener("resize", renderSkills);
-  });
-  
-  document.addEventListener("DOMContentLoaded", function () {
-      const toggleButton = document.getElementById("toggleButton");
-      const hiddenText = document.getElementById("hiddenText");
-  
-      toggleButton.addEventListener("click", function () {
-          if (hiddenText.style.display === "none" || hiddenText.style.display === "") {
-              hiddenText.style.display = "inline";
-              toggleButton.textContent = "less"; 
-          } else {
-              hiddenText.style.display = "none";
-              toggleButton.textContent = "more";
-          }
-      });
-  });
+});
