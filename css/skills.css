@@ -47,6 +47,7 @@
     cursor: pointer;
     font-size: 18px;
     color: #007bff;
+	margin-bottom: 20px;
 }
 
 #toggleCommSkillsButton:hover {
