@@ -150,5 +150,7 @@ ul li::marker {
 }
 
 .media {
-    margin: 0;
+    margin: auto;
+    justify-content:center;
+    display: flex;
 }
